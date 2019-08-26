@@ -338,6 +338,8 @@
   }%
 }
 
+\newcommand*{\keybase}[1]{\def\@keybase{#1}}
+
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
@@ -532,6 +534,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+        }%
+      \ifthenelse{\isundefined{\@keybase}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.keybase.io/\@keybase}{\faKey\acvHeaderIconSep\@keybase}          
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
